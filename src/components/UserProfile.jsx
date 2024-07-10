@@ -1,9 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import {Button} from "@mui/material";
 import {useStore} from "../state";
 
-export const UserProfile = () => {
+export const UserProfile = React.memo(() => {
   const user = useStore(state => state.user);
   const darkMode = useStore(state => state.darkMode);
   const logout = useStore(state => state.logout);
@@ -19,4 +19,4 @@ export const UserProfile = () => {
       <Button onClick={() => logout()}>Logout</Button>
     </div>
   ) : null;
-}
+});
