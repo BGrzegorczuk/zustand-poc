@@ -11,11 +11,11 @@ import BasicMenu from "./components/Menu";
 import BasicTable from "./components/List";
 import {UserProfile} from "./components/UserProfile";
 import {useEffect} from "react";
-import {useGlobalStore} from "./state";
+import {useStore} from "./state";
 
 function App() {
-  const setUser = useGlobalStore(state => state.setUser);
-  const setDarkMode = useGlobalStore(state => state.setDarkMode);
+  const setUser = useStore(state => state.setUser);
+  const setDarkMode = useStore(state => state.setDarkMode);
 
   useEffect(() => {
     const user = {

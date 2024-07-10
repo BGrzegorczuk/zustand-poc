@@ -1,21 +1,14 @@
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
-import {useUserStore} from "../state/user";
 import {Button} from "@mui/material";
-import {useUIStore} from "../state/ui";
-import {useGlobalStore} from "../state";
+import {useStore} from "../state";
 
 export const UserProfile = () => {
-  const user = useGlobalStore(state => state.user);
-  const darkMode = useGlobalStore(state => state.darkMode);
-  const logout = useGlobalStore(state => state.logout);
-
-  // const user = useUserStore(state => state.user);
-  // const logout = useUserStore(state => state.logout);
-  // const darkMode = useUIStore(state => state.darkMode);
+  const user = useStore(state => state.user);
+  const darkMode = useStore(state => state.darkMode);
+  const logout = useStore(state => state.logout);
 
   console.log('UserProfile', {user, darkMode});
-
 
   return user ? (
     <div>

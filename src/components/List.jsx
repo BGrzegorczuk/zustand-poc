@@ -6,9 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import {useUserStore} from "../state/user";
-import {useUIStore} from "../state/ui";
-import {useGlobalStore} from "../state";
+import {useStore} from "../state";
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -23,11 +21,8 @@ const rows = [
 ];
 
 export default function BasicTable() {
-  const user = useGlobalStore(state => state.user);
-  const darkMode = useGlobalStore(state => state.darkMode);
-
-  // const user = useUserStore(state => state.user);
-  // const darkMode = useUIStore(state => state.darkMode);
+  const user = useStore(state => state.user);
+  const darkMode = useStore(state => state.darkMode);
 
   console.log('BasicTable', {user, darkMode});
 
