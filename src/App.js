@@ -13,26 +13,29 @@ import {UserProfile} from "./components/UserProfile";
 import {useEffect} from "react";
 import {useStore} from "./state";
 
+const user = {
+  firstName: 'John',
+  lastName: 'Doe',
+  friends: [
+    {firstName: 'Jane', lastName: 'Doe'},
+    {firstName: 'James', lastName: 'Smith'},
+  ],
+};
+// const friends = [{firstName: 'Jane', lastName: 'Doe'}];
+
 function App() {
   const setUser = useStore(state => state.setUser);
   const setDarkMode = useStore(state => state.setDarkMode);
+  const setFriends = useStore(state => state.setFriends);
 
   useEffect(() => {
-    const user = {
-      firstName: 'John',
-      lastName: 'Doe',
-      friends: [
-        {firstName: 'Jane', lastName: 'Doe'},
-        {firstName: 'James', lastName: 'Smith'},
-      ],
-    }
-
     setTimeout(() => {
       console.log('effect');
       setUser(user);
-      // setDarkMode();
+      setDarkMode();
+      // setFriends(friends);
     }, 3000);
-  }, [setUser, setDarkMode]);
+  }, [setUser, setDarkMode, setFriends]);
 
   return (
     <div className="App">

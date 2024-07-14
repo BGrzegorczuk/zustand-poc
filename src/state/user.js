@@ -7,6 +7,8 @@ export const createUserSlice = (set) => ({
   })),
   setFirstName: (firstName) => set((state) => ({ user: { ...state.user, firstName } })),
   setLastName: (lastName) => set((state) => ({ user: { ...state.user, lastName } })),
-  // setFriends: (address) => set((state) => ({ user: { ...state.user, address } })),
+  setFriends: (friends) => set(produce(state => {
+      state.user.friends = friends
+  })),
   logout: () => set({ user: null }),
 });
